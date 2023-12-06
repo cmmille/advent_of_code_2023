@@ -67,7 +67,7 @@ class BoatRacer:
 
     def run(self):
         """
-        Calculate total number of ways the race could be won.
+        Calculate total number of ways all races could be won.
         """
         margin_of_error = 1
         for i, race_time in enumerate(self.times):
