@@ -1,8 +1,8 @@
 class BoatRacer:
-    # Constructor
-    def __init__(self, file_path):
+    def __init__(self, file_path, read_as_single_line=False):
         self.file_path = file_path
         self.read_file()
+        read_as_single_line and self.read_as_single_line()
     
     def read_file(self):
         with open(self.file_path, 'r') as f:
@@ -28,6 +28,10 @@ class BoatRacer:
     
     def count_winning_possibilities(self, race_time, record_distance):
         return len(self.all_winning_races(race_time, record_distance))
+    
+    def read_as_single_line(self):
+        self.times = [f"{''.join(self.times)}"]
+        self.distances = [f"{''.join(self.distances)}"]
     
     def calc_all_possible_wins(self):
         margin_of_error = 1
