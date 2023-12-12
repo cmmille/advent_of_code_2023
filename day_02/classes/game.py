@@ -19,6 +19,12 @@ class Game():
         rounds = [self.parse_set(set.strip()) for set in raw_sets.split(';')]
         self.rounds = [CubeCollection(**round) for round in rounds]
         self.id = int(raw_id.split()[1])
+
+    def minimum_cubes(self):
+        max_red = max([round.red for round in self.rounds])
+        max_blue = max([round.blue for round in self.rounds])
+        max_green = max([round.green for round in self.rounds])
+        return CubeCollection(max_red, max_blue, max_green)
         
     def is_possible(self, bag):
         return all([round.is_possible(bag) for round in self.rounds])

@@ -9,3 +9,6 @@ class CubeCollection:
     
     def is_possible(self, bag):
         return self.red <= bag.red and self.blue <= bag.blue and self.green <= bag.green
+    
+    def product(self):
+        return self.red * self.blue * self.green
